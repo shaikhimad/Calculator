@@ -1,0 +1,74 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Raleway, sans-serif;
+  font-weight: normal;
+}
+
+body{
+  background: linear-gradient(to right, #ffb3ba, #ffdfba, #ffffba, #baffc9,	#bae1ff);
+
+}
+
+.calculator-body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: minmax(120px, auto)repeat(5, 120px);
+  
+
+}
+
+.calculator-body > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 5px solid white;
+  outline: none;
+  background-color: rgba(225, 225, 225, .4);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 70px;
+  margin: 8px;
+
+
+}
+
+.calculator-body > button:hover {
+  background-color: rgba(225, 225, 225, .9);
+}
+
+.calculator-body:hover {
+  box-shadow:  rgba(0,0,0,0.8);
+}
+.double-span {
+  grid-column: span 2;
+}
+
+.digits {
+  grid-column: 1 / -1;
+  background-color: rgb(128, 128, 128, .5);
+  /* below to align within black box that puts out digits. Justify content spaces out the 2 sets of digits per equasion */
+  display: flex; 
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction:column;
+  padding: 10px;
+  /* lets us break word in the middle and lets us break all words */
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 100px;
+  border: 5px solid rgb(255, 179, 249);
+  margin: 8px;
+
+
+}
+
+.digits .first-digits{
+  color: white;
+  font-size: 2rem;
+}
+.digits .second-digits{
+  color: white;
+  font-size: 3rem;
+}
