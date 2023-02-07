@@ -1,5 +1,4 @@
 class Calculator {
-  // below lets us set where to place display text for calculator
   constructor (firstDigitsTextElement, secondDigitsTextElement) {
     // below lets us set text elements in class
     this.firstDigitsTextElement = firstDigitsTextElement
@@ -7,15 +6,15 @@ class Calculator {
     this.clear() // clears all inputs and sets to default value
     
   }
-
+    // below contains all of the operations the claculator class has
   clear() {
-    this.secondDigits = '' // empty strings
+    this.secondDigits = '' 
     this.firstDigits = ''
-    this.operation = undefined // no operation selected of we clear
+    this.operation = undefined // no operation selected if we clear
   }
 
   delete() {
-   this.secondDigits = this.secondDigits.toString().slice(0, -1) //chops off last number by taking all characters inside secondDigits string and taking out the last number
+   this.secondDigits = this.secondDigits.toString().slice(0, -1) 
   }
 
   appendNumber(number) {
@@ -23,7 +22,7 @@ class Calculator {
     this.secondDigits = this.secondDigits.toString() + number.toString()
   }
 
-  choosekOperation(operation) {
+  chooseOperation(operation) {
     if (this.secondDigits === '') return // this stops us from using +-*/ when we have no value on the bottom to operate on
     if (this.firstDigits !== ''){
       this.compute()
@@ -74,7 +73,8 @@ class Calculator {
 
   }
 }
-const numberButtons = document.querySelectorAll('[data-number]')
+// all elements that match a certain string can be accessed with querySelector
+const numberButtons = document.querySelectorAll('[data-number]') 
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const clearButton = document.querySelector('[data-clear]')
@@ -93,7 +93,7 @@ numberButtons.forEach(button => {  // to loop over all the different buttons
 
 operationButtons.forEach(button => { 
   button.addEventListener('click', () => {
-    calculator.choosekOperation(button.innerText)
+    calculator.chooseOperation(button.innerText)
     calculator.updateDisplay() 
   })
 })
